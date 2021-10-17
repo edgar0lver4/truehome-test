@@ -38,7 +38,7 @@ const CalendarComponent = ()=>{
                 </div>
             </div>
             <div className="d-flex row">
-                <div><DaysSnippet/></div>
+                <DaysSnippet/>
                 <div className="onlyDesktop"><DaysSnippet/></div>
             </div>
             <div className="calendar-container rows">
