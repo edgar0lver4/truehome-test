@@ -15,6 +15,9 @@ export const createToken = (uuid)=>{
         .then((data)=>{
             dispatch(setToken(data.token));
         })
+        .catch(e=>{
+            console.log(e);
+        });
     }
 }
 
