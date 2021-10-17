@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins:wght@200&display=swap');
+$Desktop-width:1200px;
+$Tablet-width:768px;
+$Phone-width:480px;
+$FontPrincipal: 'Baloo 2', cursive;
+$FontSecondary: 'Poppins', sans-serif;
+$color-primary:#0361E4;
+*{
+    padding: 0px;
+    margin: 0px;
+}
+@mixin Desktop {
+    @media (min-width:#{$Desktop-width}){
+        @content;
+    }
+}
+
+@mixin Tablet {
+    @media (min-width: #{$Tablet-width}) and (max-width:#{$Desktop-width - 1px}){
+        @content;
+    }
+}
+
+@mixin Phone {
+    @media (max-width:#{ $Tablet-width - 1px }) {
+        @content;
+    }
+}
+
+@mixin keyframes-animation($name){
+    @-webkit-keyframes #{$name} {
+        @content;
+    }    
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name}{
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;     
+    }
+}
+
+@mixin animation-property($name,$value){
+    -webkit-#{$name}:$value;
+    -moz-#{$name}:$value;
+    -o-#{$name}:$value;
+    #{$name}:$value;
+}
+
+.row{
+    flex-direction: row;
+}
+.column{
+    flex-direction: column;
+}
+.d-flex{
+    display: flex;
+}
+
+.onlyDesktop{
+    display: none !important;
+    @include Desktop{
+        display: flex !important;
+    }
+}

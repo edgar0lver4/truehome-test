@@ -1,0 +1,101 @@
+@import 'general.styles';
+
+.calendarOption{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+    transition: background 500ms;
+    span{
+        font-size: 24px;
+        font-family: $FontPrincipal;
+    }
+    &.disabled{
+        .day{       
+             color: #C4C4C4;
+        }
+    }
+    &.active{
+        &:hover{
+            background: $color-primary;
+            color:#fff;
+            cursor: pointer;
+        }
+    }
+    &.selected{
+        background: $color-primary !important;
+        color:#fff;
+    }
+    &.isNUlled{
+        background: #B6D5FF;
+    }
+}
+.daysContainer{
+    width: 336px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.calendar{
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    .calendar-container{
+        display: flex;
+        .calendar-viwer{
+            display: flex;
+            justify-content: center;
+            width: 480px;
+        }
+    }
+    .container{
+        display: flex;
+        flex-direction: row;
+        .calendar-months{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $color-primary;
+            font-family: $FontPrincipal;
+            font-size: 24px;
+            width: 480px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    }
+    .calendar-title{
+        color: #fff;
+        background: $color-primary;
+        font-family: $FontPrincipal;
+        font-size: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .days-snippet{
+        background: $color-primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 480px;
+        .item{
+            width: 48px;
+            height: 48px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    @include Desktop{
+        width: 960px;
+    }
+}

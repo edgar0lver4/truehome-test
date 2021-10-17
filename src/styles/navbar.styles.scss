@@ -1,0 +1,133 @@
+@import 'general.styles';
+
+.navbar{
+    width: 100%;
+    height: 72px;
+    background: #0361E4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title{
+        font-size: 36px;
+        font-family: $FontPrincipal;
+        display: block;
+        margin-left: 16px;
+        color:#ffffff;
+        font-weight: bold;
+    }
+    .submenu{
+        display: flex;
+        flex-direction: row;
+        .sublink{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 16px;
+            height: 72px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .selected{
+            background: #9cc6ff;
+        }
+    }
+    .button{
+        background: #0361E4;
+        height: 72px;
+        padding-left: 16px;
+        padding-right: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        border: 0px;
+    }
+    .onlyDesktop{
+        display: none;
+    }
+    .onlyTablet{
+        display: none;
+    }
+    .onlyMobile{
+        display: flex;
+    }
+    .rightMenu{
+        .myFlights_link{
+            background: #ffffff;
+            height: 72px;
+            padding-right: 16px;
+            padding-left: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-family: $FontSecondary;
+            text-decoration: none;
+            color:#0361E4;
+            .iconFly{
+                width: 40px;
+                height: 32px;
+                margin-left: 16px;
+            }
+        }
+        .selected{
+            background: #9cc6ff;
+            color:#ffffff;
+        }
+        .searchButton{
+            &:hover{
+                cursor: pointer;
+                background: #ffffff;
+                color: #0361E4;
+            }
+        }
+        .icon{
+            width: 40px;
+            height: 32px;
+            margin-left: 16px;
+        }
+    }
+    .leftmenu{
+        .hamburger_menu{
+            width: 100%;
+            .icon{
+                width: 40px;
+                height: 32px;
+                margin-left: 16px;
+            }
+            &:hover{
+                cursor: pointer;
+                background: #ffffff;
+                color: #0361E4;
+            }
+        }
+    }
+    @include Tablet{
+        .onlyDesktop{
+            display: none;
+        }
+        .onlyTablet{
+            display: flex;
+        }
+        .onlyMobile{
+            display: none;
+        }
+    }
+    @include Desktop{
+        .onlyDesktop{
+            display: flex;
+        }
+        .onlyTablet{
+            display: none;
+        }
+        .onlyMobile{
+            display: none;
+        }
+        .noDesktop{
+            display: none;
+        }
+    }
+}

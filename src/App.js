@@ -1,23 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ Suspense, useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './elements/navbar/navbar';
+import AppRoutes from './routes/routes';
+import "./App.css";
+import LoaderComponent from './elements/loader/loader';
+import { useDispatch } from 'react-redux';
+import { createToken, setUuid } from './redux/actions/sesion-actions';
+import { v4 as uuid } from 'uuid'
+import SesionService from './service/sesionServices';
 
 function App() {
+  //Estado general del proyecto
+  const [userId,setUserId] = useState('');
+  const [token,setToken] = useState('');
+
+  let dispatch = useDispatch();
+
+  useEffect(()=>{
+    //Funciones asincronas necesarias
+    async function start(uuid){
+      let service = new SesionService();
+      let newToken= await service.createToken(uuid);
+      localStorage.setItem('token',newToken);
+      setToken(newToken);
+    }
+
+    async function verify(token){
+      let service = new SesionService();
+      let consulta= await service.verifyToken(token);
+      return consulta;
+    }
+
+    if(localStorage.getItem('token')){
+      //Verificamos que el token sea valido
+      let tokenUser = localStorage.getItem('token');
+      verify(tokenUser)
+      .then((data)=>{
+        if(!data.token){
+          start();
+        }
+      });
+    }if(userId === '' && token === ''){
+      //Generamos un nuevo token en caso de que no exista
+      let uidGenerated = uuid();
+      dispatch(setUuid(uidGenerated));
+      dispatch(createToken(uidGenerated));
+      setUserId(uidGenerated);
+      start(uidGenerated)
+    }
+  },[userId,token])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar/>
+        <Suspense fallback={<LoaderComponent message="Configurando sitio"/>}>
+          <AppRoutes/>
+        </Suspense>
+      </Router>
     </div>
   );
 }

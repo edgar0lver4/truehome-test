@@ -1,0 +1,147 @@
+@import "general.styles";
+
+@include keyframes-animation(testAnimation){
+    0%{
+        @include animation-property(width,0px);
+    }
+    50%{
+        @include animation-property(width,480px);
+    }
+    100%{
+        @include animation-property(width,0px);
+    }
+}
+
+@include keyframes-animation(flyIcon){
+    0%{
+        @include animation-property(left,0%);
+        @include animation-property(transform,scale(1));
+        opacity: 0;
+    }
+    50%{
+        @include animation-property(left,50%);
+        @include animation-property(transform,scale(3));
+        opacity: 1;
+    }
+    100%{
+        @include animation-property(left,100%);
+        @include animation-property(transform,scale(1));
+        opacity: 0;
+    }
+}
+
+@include keyframes-animation(firstElement){
+    0%{
+        color: #fff;
+        background: $color-primary;
+    }
+    50%{
+        background: #fff;
+        color: $color-primary;
+    }
+    100%{
+        background: #fff;
+        color: $color-primary;
+    }
+}
+@include keyframes-animation(secondElement){
+    0%{
+        background: #fff;
+        color: $color-primary;
+    }
+    50%{
+        color: #fff;
+        background: $color-primary;
+    }
+    100%{
+        background: #fff;
+        color: $color-primary;
+    }
+}
+@include keyframes-animation(thirthElement){
+    0%{
+        background: #fff;
+        color: $color-primary;
+    }
+    50%{
+        background: #fff;
+        color: $color-primary;
+    }
+    100%{
+        color: #fff;
+        background: $color-primary;
+    }
+}
+.content-animated{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    overflow: hidden;
+    @include Tablet{
+        min-height:480px;
+    }
+    @include Desktop{
+        min-height: 600px;
+    }
+    .animated-principal{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .icon-fly{
+            position: absolute;
+            font-size: 32px;
+            color: $color-primary;
+            animation: flyIcon infinite 4s;
+            top: 30%;
+        }
+        .loader-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 32px;
+            max-width: 480px;
+            font-size: 24px;
+            overflow: hidden;
+            font-family: $FontPrincipal;
+            color:$color-primary;
+            @include Phone{
+                max-width: 300px;
+                font-size: 16px;
+            }
+        }
+    }
+    .microElements{
+        margin-top: 16px;
+        display: flex;
+        flex-direction: row;
+        .microElement{
+            width: 48px;
+            height: 48px;
+            color: $color-primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 10px;
+            .icon{
+                font-size: 32px;
+                padding: 8px;
+            }
+        }
+        .first{
+            animation: firstElement infinite 8s;
+        }
+        .second{
+            animation: secondElement infinite 8s;
+        }
+        .thirth{
+            animation: thirthElement infinite 8s;
+        }
+    }
+}
