@@ -14,9 +14,9 @@ function App() {
   const [userId,setUserId] = useState('');
   const [token,setToken] = useState('');
 
-  let dispatch = useDispatch();
-
+  const dispatch = useDispatch();
   useEffect(()=>{
+    
     //Funciones asincronas necesarias
     async function start(uuid){
       let service = new SesionService();
@@ -31,6 +31,13 @@ function App() {
       return consulta;
     }
 
+    function uuidGenerate(uidGenerated){
+      dispatch(setUuid(uidGenerated));
+      dispatch(createToken(uidGenerated));
+      setUserId(uidGenerated);
+      start(uidGenerated)
+    }
+
     if(localStorage.getItem('token')){
       //Verificamos que el token sea valido
       let tokenUser = localStorage.getItem('token');
@@ -43,12 +50,9 @@ function App() {
     }if(userId === '' && token === ''){
       //Generamos un nuevo token en caso de que no exista
       let uidGenerated = uuid();
-      dispatch(setUuid(uidGenerated));
-      dispatch(createToken(uidGenerated));
-      setUserId(uidGenerated);
-      start(uidGenerated)
+      uuidGenerate(uidGenerated);
     }
-  },[userId,token])
+  },[userId,token,dispatch])
 
   return (
     <div className="App">

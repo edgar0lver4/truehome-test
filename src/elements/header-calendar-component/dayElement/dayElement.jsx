@@ -44,19 +44,19 @@ const DayElement = (props)=>{
         }
         setSelected(!selected)
     }
-    //Control nulled days
-    const isNulledDay = ()=>{
-        let filter = dateStore.daysNulled.find((itm)=>itm.year === props.year && 
-                                                    itm.month === props.month && 
-                                                    itm.day === props.day);
-        if(filter !== undefined){
-            setIsNulled(true);
-        }else{
-            setIsNulled(false);
-        }
-    }
 
     useEffect(()=>{
+        //Control nulled days
+        function isNulledDay(){
+            let filter = dateStore.daysNulled.find((itm)=>itm.year === props.year && 
+                                                        itm.month === props.month && 
+                                                        itm.day === props.day);
+            if(filter !== undefined){
+                setIsNulled(true);
+            }else{
+                setIsNulled(false);
+            }
+        }
         function setSelective(){
             let dateInit = dateStore?.dateInit;
             let actualYear = parseInt(new Date().getFullYear());
@@ -76,7 +76,7 @@ const DayElement = (props)=>{
         }
         setSelective();
         isNulledDay();
-    },[dateStore.daysNulled]);
+    },[dateStore.daysNulled,dateStore?.dateInit,props.day,props.month,props.year]);
 
     return(
         <div className={isSelective ? `calendarOption active ${selectedItem() ? 'selected' : null} ${isNulled ? 'isNUlled' : false}` : `calendarOption disabled`} onClick={__handleClic}>
