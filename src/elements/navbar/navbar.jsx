@@ -17,14 +17,6 @@ const Navbar = () =>{
                 <NavLink to="/my-reservations" className="myFlights_link" activeClassName="selected">
                     Mis vuelos <FontAwesomeIcon className="iconFly" icon={faPlaneDeparture}/>
                 </NavLink>
-                <button className="searchButton button">
-                    <FontAwesomeIcon icon={faSearch} className="icon"/>
-                </button>
-            </div>
-            <div className="onlyTablet rightMenu">
-                <button className="searchButton button">
-                    <FontAwesomeIcon icon={faSearch} className="icon"/>
-                </button>
             </div>
             <div className="noDesktop leftmenu">
                 <button className="hamburger_menu button">
