@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlaneDeparture, faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneDeparture, faBars } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/navbar.styles.scss';
 
 const Navbar = () =>{
