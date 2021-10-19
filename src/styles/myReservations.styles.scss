@@ -17,9 +17,10 @@
     align-items: center;
     max-height: 380px;
     margin-left: 24px;
+    margin-top: 16px;
     .sells{
         padding: 16px;
-        font-size: 16px;
+        font-size: 24px;
         font-family: $FontPrincipal;
         background-color: #3ec400;
         color: #fff;
@@ -35,9 +36,11 @@
     }
     @include Tablet{
         width: 350px;
+        margin-top: 16px;
     }
     @include Desktop{
         width: 400px;
+        margin-top: 0px;
     }
     background-color: #c4c4c4;
     display: flex;
@@ -47,15 +50,22 @@
         font-size: 36px;
     }
 }
+.page{
+    width: 100%;
+}
 .target-list{
     margin-left: 24px;
     margin-top: 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     .content{
-        width: 60%;
+        width: 100%;
+        padding: 16px;
+        border:1px solid $color-primary;
+        background-color: $color-primary;
+        color:#fff;
         @include Tablet{
             width: 400px;
         }
@@ -85,5 +95,21 @@
     }
     @include Desktop{
         width: 560px;
+    }
+}
+
+.container{
+    width: 100%;
+    .fullDesktop{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include Tablet{
+            width: 80%;
+        }
+        @include Phone{
+            width: 100%;
+        }
     }
 }

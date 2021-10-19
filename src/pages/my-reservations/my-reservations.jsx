@@ -48,13 +48,13 @@ const MyReservationsPage = () =>{
     },[shopStore.store,shopStore.store.length])
 
     return(
-        <div>
+        <div className="page">
             <HeaderElement 
                 title="Mis reservaciones" 
                 src="https://preview.redd.it/pz9o669vap931.jpg?auto=webp&s=4c6304c5d733096d5472bb69ee4ce1391ba5b63c"/>
             <h1 className="title">Mis reservaciones</h1>
             <div className="container row">
-                <div className="d-flex column ">
+                <div className="d-flex column fullDesktop">
                     {shopStore.store.length > 0 ? shopStore.store.map((itm,i)=><HandleList key={i} id={i} cdsal={itm.cd_salida} cdlleg={itm.cd_llegad} price={itm.costo} />) : <h1>No hay reservaciones</h1> }
                 </div>
                 <div className="totalizar">
