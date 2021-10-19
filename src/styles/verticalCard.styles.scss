@@ -1,0 +1,44 @@
+@import "general.styles";
+
+.card-vertical{
+    width: 80%;
+    height: 500px;
+    box-shadow: 0px 0px 10px #C4C4C4;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;
+    .snippet{
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        .title{
+            font-size: 40px;
+            font-family: $FontPrincipal;
+            color: #fff;
+        }
+        .subtitle{
+            font-size: 24x;
+            font-family: $FontPrincipal;
+            color: #fff;
+        }
+    }
+    .miniCortina{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: #000;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+    }
+    @include Tablet{
+        height: 320px;
+    }
+    @include Desktop{
+        height: 400px;
+    }
+}

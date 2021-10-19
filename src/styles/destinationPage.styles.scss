@@ -1,0 +1,28 @@
+@import "./general.styles.scss";
+.cities-container{
+    margin-top: 16px;
+    .button-footer{
+        position: absolute;
+        bottom: 32px;
+        right: 32px;
+        padding: 16px;
+        color: #fff;
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        font-size: 24px;
+        font-family: $FontPrincipal;
+        transition: background 1s, color 1s;
+        &:hover{
+            cursor: pointer;
+            background: #fff;
+            color:$color-primary;
+        }
+    }
+    @include Tablet{
+        margin-top: -106px;
+    }
+    @include Desktop{
+        margin-top: -160px;
+    }
+}
