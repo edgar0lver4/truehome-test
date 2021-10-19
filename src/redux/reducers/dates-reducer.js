@@ -14,6 +14,8 @@ const dateReducer = (state = INITIAL_STATE,action)=>{
             return {...state,dateInit:null,dateFinish:null,daysNulled:[]};
         case 'RESET_FINISH_DATE':
             return {...state,dateFinish:null,daysNulled:[]}
+        case 'RESET_DATE':
+            return {...state,dateInit:null, dateFinish:null, daysNulled:[] };
         default:
             return state;
     }

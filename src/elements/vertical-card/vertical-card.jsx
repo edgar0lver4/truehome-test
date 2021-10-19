@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../styles/verticalCard.styles.scss";
 const VerticalCard = (props)=>{
 
@@ -8,7 +9,7 @@ const VerticalCard = (props)=>{
                 <div className="title">{props.city}</div>
                 <div className="subtitle">{props.contry}</div>
             </div>
-            <button className="button-footer">Ver vuelos</button>
+            <Link className="button-footer" to={"/destination/"+props.id}>Ver vuelos</Link>
         </div>
     )
 }

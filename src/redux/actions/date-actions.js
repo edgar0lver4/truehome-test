@@ -21,3 +21,8 @@ export const resetFinishDate = ()=>{
         type:'RESET_FINISH_DATE'
     }
 }
+export const resetDate = ()=>{
+    return{
+        type:'RESET_DATE'
+    }
+}

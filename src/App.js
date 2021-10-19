@@ -8,6 +8,9 @@ import { useDispatch } from 'react-redux';
 import { createToken, setUuid } from './redux/actions/sesion-actions';
 import { v4 as uuid } from 'uuid'
 import SesionService from './service/sesionServices';
+import { CatalogService } from './service/services';
+import { setCatalogFlight } from './redux/actions/flight-actions';
+import { setCities } from './redux/actions/cities-actions';
 
 function App() {
   //Estado general del proyecto
@@ -23,6 +26,24 @@ function App() {
       let newToken= await service.createToken(uuid);
       localStorage.setItem('token',newToken);
       setToken(newToken);
+      await startServices(newToken);
+    }
+
+    async function startServices(token){
+      await getVuelos(token);
+      await getCities(token);
+    }
+
+    async function getVuelos(token){
+      let service = new CatalogService();
+      let vuelos = await service.getVuelos(token);
+      dispatch(setCatalogFlight(vuelos));
+    }
+
+    async function getCities(token){
+      let service = new CatalogService();
+      let cities = await service.getCities(token);
+      dispatch(setCities(cities));
     }
 
     async function verify(token){
@@ -47,6 +68,7 @@ function App() {
           start();
         }
       });
+      startServices(tokenUser);
     }if(userId === '' && token === ''){
       //Generamos un nuevo token en caso de que no exista
       let uidGenerated = uuid();

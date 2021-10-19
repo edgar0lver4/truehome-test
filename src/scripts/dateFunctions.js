@@ -27,6 +27,15 @@ export const sumDays = (date,days)=>{
     return result;
 }
 
+export const transformDate = (date)=>{
+    let split = date.split("-");
+    return split.join('/');
+}
+export const unTransformDate = (date)=>{
+    let split = date.split("/");
+    return split.join("-");
+}
+
 export const MONTHS = ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"];
 export const DAYS_MID= ["DOM","LUN","MAR","MIE","JUE","VIE","SAB"];
 export const DAYS_SM = ["D","L","M","M","J","V","S"]; 

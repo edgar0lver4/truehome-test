@@ -3,10 +3,11 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {Switch,Route,useLocation} from 'react-router-dom';
 
 import "../styles/pages.styles.scss";
+import DestinationPage from '../pages/destination/destination-page';
 
 
 //Lazy Pages
-const DestinationsPage = lazy(()=>import('../pages/destinations/destination-page'));
+const DestinationsPage = lazy(()=>import('../pages/destinations/destinations-page'));
 const FlightsPage = lazy(()=>import('../pages/flights/flights-page'));
 const IndexPage = lazy(()=>import('../pages/index/index-page'));
 const MyReservationsPage = lazy(()=>import('../pages/my-reservations/my-reservations'));
@@ -26,6 +27,9 @@ const AppRoutes = ()=>{
                     </Route>
                     <Route exact path="/destinations">
                         <DestinationsPage/>
+                    </Route>
+                    <Route exact path="/destination/:id">
+                        <DestinationPage/>
                     </Route>
                     <Route exact path="/flights">
                         <FlightsPage/>

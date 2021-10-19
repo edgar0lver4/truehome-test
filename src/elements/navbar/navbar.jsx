@@ -10,11 +10,11 @@ const Navbar = () =>{
             <span className="title">VOLANDOANDO</span>
             <div className="onlyDesktop submenu">
                 <NavLink exact to="/" className="sublink" activeClassName="selected">Inicio</NavLink>
-                <NavLink to="destinations" className="sublink" activeClassName="selected">Destinos</NavLink>
-                <NavLink to="/flights" className="sublink" activeClassName="selected">Vuelos</NavLink>  
+                <NavLink exact to="/destinations" className="sublink" activeClassName="selected">Destinos</NavLink>
+                <NavLink exact to="/flights" className="sublink" activeClassName="selected">Vuelos</NavLink>  
             </div>
             <div className="onlyDesktop rightMenu">
-                <NavLink to="/my-reservations" className="myFlights_link" activeClassName="selected">
+                <NavLink exact to="/my-reservations" className="myFlights_link" activeClassName="selected">
                     Mis vuelos <FontAwesomeIcon className="iconFly" icon={faPlaneDeparture}/>
                 </NavLink>
             </div>

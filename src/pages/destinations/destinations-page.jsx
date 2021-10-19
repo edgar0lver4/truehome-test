@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "../../config/config";
 import { Swiper,SwiperSlide } from "swiper/react";
 import HeaderElement from "../../elements/header/header";
@@ -8,6 +8,7 @@ import LoaderComponent from "../../elements/loader/loader";
 import 'swiper/swiper.scss';
 import VerticalCard from "../../elements/vertical-card/vertical-card";
 import "../../styles/destinationPage.styles.scss";
+import { setCities } from "../../redux/actions/cities-actions";
 
 const __handleDestinationComponent = (destinations)=>{
     return(
@@ -33,7 +34,7 @@ const __handleDestinationComponent = (destinations)=>{
                         },
                     }}>
                     {destinations.map((itm,i)=><SwiperSlide style={{display:'flex', justifyContent:"center", alignItems:"center"}} key={i}>
-                                                    <VerticalCard key={i} contry={itm.country} city={itm.city} img={itm.img} />
+                                                    <VerticalCard key={i} contry={itm.country} city={itm.city} img={itm.img} id={itm.id}/>
                                                 </SwiperSlide>)}
                 </Swiper>
             </div>
@@ -43,8 +44,9 @@ const __handleDestinationComponent = (destinations)=>{
 
 const DestinationsPage = ()=>{
 
-    const [destinations,setDestinations] = useState([]);
     let sesionStore = useSelector((store)=>store.sesionReducer);
+    let citiesStore = useSelector((store)=>store.citiesReducer);
+    let dispatch = useDispatch();
     useEffect(()=>{
         document.title = 'Volandoando | Nuestros destinos';
         async function getCities(){
@@ -53,17 +55,17 @@ const DestinationsPage = ()=>{
                 let consult = await fetch(url);
                 let result = await consult.json();
                 console.log(result);
-                setDestinations(result.data);
+                dispatch(setCities(result.data));
             }catch(e){
                 console.error(e);
             }
         }
         getCities();
-    },[sesionStore.token]);
+    },[sesionStore.token,dispatch,citiesStore.cities.length]);
 
     return(
         <div>
-            {destinations.length > 0 ? __handleDestinationComponent(destinations) : <LoaderComponent message="Cargando destinos..."/>}
+            {citiesStore.cities.length > 0 ? __handleDestinationComponent(citiesStore.cities) : <LoaderComponent message="Cargando destinos..."/>}
         </div>
     )
 }
