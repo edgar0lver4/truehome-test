@@ -11,6 +11,7 @@ import SesionService from './service/sesionServices';
 import { CatalogService } from './service/services';
 import { setCatalogFlight } from './redux/actions/flight-actions';
 import { setCities } from './redux/actions/cities-actions';
+import { setAirports } from './redux/actions/airports-actions';
 
 function App() {
   //Estado general del proyecto
@@ -32,18 +33,25 @@ function App() {
     async function startServices(token){
       await getVuelos(token);
       await getCities(token);
+      await getAirports(token);
     }
 
     async function getVuelos(token){
       let service = new CatalogService();
       let vuelos = await service.getVuelos(token);
-      dispatch(setCatalogFlight(vuelos));
+      dispatch(setCatalogFlight(vuelos.data));
     }
 
     async function getCities(token){
       let service = new CatalogService();
       let cities = await service.getCities(token);
-      dispatch(setCities(cities));
+      dispatch(setCities(cities.data));
+    }
+
+    async function getAirports(token){
+      let service = new CatalogService();
+      let airport = await service.getAirports(token);
+      dispatch(setAirports(airport.data));
     }
 
     async function verify(token){

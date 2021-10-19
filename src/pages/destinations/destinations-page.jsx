@@ -60,7 +60,9 @@ const DestinationsPage = ()=>{
                 console.error(e);
             }
         }
-        getCities();
+        if(citiesStore.cities.length === 0){
+            getCities();
+        }
     },[sesionStore.token,dispatch,citiesStore.cities.length]);
 
     return(

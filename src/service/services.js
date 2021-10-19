@@ -23,4 +23,14 @@ export class CatalogService{
             console.error(e);
         }
     }
+    async getAirports(token){
+        let url = `${API_URL}/airports/list/${token}`;
+        try{
+            let consult = await fetch(url);
+            let result = await consult.json();
+            return result;
+        }catch(e){
+            console.error(e);
+        }
+    }
 }

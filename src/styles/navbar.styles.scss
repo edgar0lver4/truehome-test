@@ -131,3 +131,49 @@
         }
     }
 }
+.toggle-menu{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    background-color: #0361E4;
+    z-index: 100;
+    .title{
+        font-family: $FontPrincipal;
+        font-size: 36px;
+        margin-bottom: 32px;
+        margin-top: 16px;
+        color: #fff;
+    }
+    &.noDesktop{
+        display: flex;
+        @include Desktop{
+            display: none;
+        }
+    }
+    &.off{
+        display: none;
+    }
+    &.on{
+        display: flex;
+    }
+    .selected{
+        background-color: #fff;
+        color: #0361E4 !important;
+    }
+    .sublink{
+        width: 100%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 72px;    
+        font-size: 36px;
+        font-family: $FontSecondary;
+        text-decoration: none;
+    }
+    
+}

@@ -1,0 +1,84 @@
+@import "./general.styles.scss";
+.reserved{
+    background: #0361E4;
+    color: #fff !important;
+    .strech{
+        justify-content: space-between;
+        .text-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .city{
+            font-size: 16px;
+            color: #fff !important;
+            @include Tablet{
+                font-size: 24px;
+            }
+            @include Desktop{
+                font-size: 36px;
+            }
+        }        
+    }
+}
+.cardHorizontal{
+    width: 80%;
+    margin-left: 16px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #c4c4c4;
+    box-shadow: 0px 0px 5px #666666;
+    padding: 16px;
+    border-radius: 15px;
+    transition: background 0.5s color 0.5s;
+    .strech{
+        justify-content: space-between;
+        .price{
+            font-size: 16px;
+            padding: 8px;
+            @include Tablet{
+                font-size: 24px;
+            }
+            @include Desktop{
+                font-size: 36px;
+            }
+        }
+        .text-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .city{
+            font-size: 16px;
+            color:#0361E4;
+            @include Tablet{
+                font-size: 24px;
+            }
+            @include Desktop{
+                font-size: 36px;
+            }
+        }     
+        .button-reserve{
+            background-color: #0361E4;
+            font-family: $FontPrincipal;
+            font-size: 16px;
+            padding: 8px;
+            color: #fff;
+            border: 1px solid #0361E4;
+            border-radius: 5px;
+            &:hover{
+                cursor: pointer;
+                background-color: #fff;
+                color: #0361E4;
+                border: 1px solid #0361E4;
+            }
+        }   
+    }
+    @include Tablet{
+        width: 504px;
+    }
+    @include Desktop{
+        width: 560px;
+    }
+}
