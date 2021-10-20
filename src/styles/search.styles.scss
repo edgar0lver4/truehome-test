@@ -17,11 +17,29 @@
     &:hover{
         cursor: pointer;
     }
-    @include Tablet{
+}
+@include Tablet{
+    .btnTab{
+        width: 50%;
+        border: transparent;
         font-size: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        &:hover{
+            cursor: pointer;
+        }
     }
-    @include Desktop{
+}
+@include Desktop{
+    .btnTab{
+        width: 50%;
+        border: transparent;
         font-size: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 .selecteditem{
