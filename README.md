@@ -3,7 +3,7 @@
 ## Requisitos
 - Tener instalado sass
 - Opcional tener instalado yarn
-- Opcional instalar el servidor de node
+- Opcional instalar el servidor de node que se creo para esté sistema [https://github.com/edgar0lver4/truehome-server](https://github.com/edgar0lver4/truehome-server)
 
 ## Curiosidades 
 El modelo del sitio se baso en una maqueta en [Figma](https://www.figma.com/file/evtOnU0MzdjqfhsAtaVXAi/Truehome-airport?node-id=0%3A1) pero por cuestiones de tiempo algunas vistas y componentes no pudieron ser terminados.
