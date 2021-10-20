@@ -3,12 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { resetDate, setFinishDate, setInitalDate } from "../../redux/actions/date-actions";
+import { resetSearchWithoutDestinations, setSearchCities, setSearchDates } from "../../redux/actions/sesion-actions";
+
 import { createDates, getDatesDifference, sumDays, transformDate, unTransformDate } from "../../scripts/dateFunctions";
 import "../../styles/miniCalendar.styles.scss";
 
 const __handleSelect = (id)=>{
     let [cities,setCities] = useState([]);
     let citiesStore = useSelector((store)=>store.citiesReducer);
+    let dispatch = useDispatch();
+    function __handleSelectValue(e){
+        console.log(e.target.value)
+        dispatch(setSearchCities(e.target.value));
+    }
     useEffect(()=>{
         function start(){
             let citiesFilter = citiesStore.cities.filter((itm)=>itm.id !== id)
@@ -19,7 +26,7 @@ const __handleSelect = (id)=>{
     return(
         <div className="form-container">
             <label className="form-label">Ciudad de origen</label>
-            <select className="form-select">
+            <select className="form-select" onChange={__handleSelectValue}>
                 <option value="0">Todos</option>
                 { cities.length > 0 ? cities.map((itm)=><option value={itm.id}>{itm.city}</option>) : null }
             </select>
@@ -51,7 +58,12 @@ const MiniCalendarElement = (props)=>{
         let cuando = sumDays(newDate,0);
         let days = getDatesDifference(dateStore.dateInit.str,cuando.str);
         let nulledDays = createDates(dateStore.dateInit.str,days);
-        
+
+        let dateSearch = {
+            inicial: dateStore.dateInit.str,
+            final: cuando.str
+        }
+        dispatch(setSearchDates(dateSearch))        
         dispatch(setFinishDate(cuando,nulledDays));
 
         setHasta(e.target.value);
@@ -61,6 +73,7 @@ const MiniCalendarElement = (props)=>{
         setDesde("");
         setHasta("");
         dispatch(resetDate());
+        dispatch(resetSearchWithoutDestinations());
     }
 
     useEffect(()=>{
@@ -118,7 +131,7 @@ const MiniCalendarElement = (props)=>{
                     <button onClick={__handleClean} className="button-clear"><FontAwesomeIcon icon={faTrash}/> Limpiar</button>
                 </div>
                 <div className="form-container center">
-                    <button onClick={__handleClean} className="button-search">Buscar</button>
+                    <button onClick={__handleMenuSearch} className="button-search">Buscar</button>
                 </div>
             </div>
         </>

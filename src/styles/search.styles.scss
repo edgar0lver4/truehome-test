@@ -1,0 +1,27 @@
+@import "./general.styles.scss";
+.principalContainer{
+    width: 100%;
+}
+.off{
+    display: none;
+}
+.selected{
+    display: flex;
+}
+.btnTab{
+    width: 50%;
+    border: transparent;
+    font-size: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.selecteditem{
+    background-color: $color-primary;
+    color: #fff;
+}
+.fullContedTab{
+    width: 90%;
+}

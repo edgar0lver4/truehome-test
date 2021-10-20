@@ -17,7 +17,6 @@ const Navbar = () =>{
                 <span className="title">VOLANDOANDO</span>
                 <div className="onlyDesktop submenu">
                     <NavLink exact to="/" className="sublink" activeClassName="selected">Inicio</NavLink>
-                    <NavLink exact to="/destinations" className="sublink" activeClassName="selected">Destinos</NavLink>
                 </div>
                 <div className="onlyDesktop rightMenu">
                     <NavLink exact to="/my-reservations" className="myFlights_link" activeClassName="selected">
@@ -37,7 +36,6 @@ const Navbar = () =>{
             <div className={leftNav ? "toggle-menu noDesktop on" : "toggle-menu noDesktop off"}>
                 <div className="title">VOLANDOANDO</div>
                 <NavLink exact to="/" className="sublink" activeClassName="selected">Inicio</NavLink>
-                <NavLink exact to="/destinations" className="sublink" activeClassName="selected">Destinos</NavLink>
                 <NavLink exact to="/my-reservations" className="sublink" activeClassName="selected">
                     Mis vuelos <FontAwesomeIcon className="iconFly" icon={faPlaneDeparture}/>
                 </NavLink>

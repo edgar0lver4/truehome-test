@@ -22,10 +22,10 @@ const AppRoutes = ()=>{
                 classNames="fade"
                 timeout={400}>
                 <Switch location={location}>
-                    <Route exact path="/">
+                    <Route exact path="/ini">
                         <IndexPage />
                     </Route>
-                    <Route exact path="/destinations">
+                    <Route exact path="/">
                         <DestinationsPage/>
                     </Route>
                     <Route exact path="/destination/:id">
