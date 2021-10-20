@@ -17,6 +17,12 @@
     &:hover{
         cursor: pointer;
     }
+    @include Tablet{
+        font-size: 24px;
+    }
+    @include Desktop{
+        font-size: 16px;
+    }
 }
 .selecteditem{
     background-color: $color-primary;
