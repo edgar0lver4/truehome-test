@@ -1,5 +1,19 @@
 # Getting Started with Create React App
 
+## Requisitos
+- Tener instalado sass
+- Opcional tener instalado yarn
+- Opcional instalar el servidor de node
+
+## Curiosidades 
+El modelo del sitio se baso en una maqueta en [Figma](https://www.figma.com/file/evtOnU0MzdjqfhsAtaVXAi/Truehome-airport?node-id=0%3A1) pero por cuestiones de tiempo algunas vistas y componentes no pudieron ser terminados.
+
+## Instalación
+Para instalar el proyecto basta con usar el comando 
+### `yarn install`
+o
+### `npm i`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
