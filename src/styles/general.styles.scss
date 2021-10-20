@@ -65,10 +65,81 @@ $color-primary:#0361E4;
         display: flex !important;
     }
 }
+.onlyTabletDesktop{
+    display: none;
+    @include Tablet{
+        display: flex;
+    }
+    @include Desktop{
+        display: flex;
+    }
+}
+.onlyTabletPhone{
+    display: none;
+    @include Tablet{
+        display: flex;
+    }
+    @include Phone{
+        display: flex;
+    }
+}
 .strech{
     justify-content: space-between;
 }
 .container{
     display: flex;
     flex-wrap: wrap;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fullContent{
+    width: 80%;
+}
+.sm-12{
+    @include Phone{
+        width: 100%;
+    }
+}
+.mid-12{
+    @include Tablet{
+        width: 100%;
+    }
+}
+.mid-6{
+    @include Tablet{
+        width: 50%;
+    }
+}
+.lg-8{
+    @include Desktop{
+        width: calc(100% * (8/12));
+    }
+}
+.lg-7{
+    @include Desktop{
+        width: calc(100% * (7/12));
+    }
+}
+.lg-6{
+    @include Desktop{
+        width: 50%;
+    }
+}
+.lg-5{
+    @include Desktop{
+        width: calc(100% * (5/12));
+    }
+}
+.lg-4{
+    @include Desktop{
+        width: calc(100% * (4/12));
+    }
+}
+.lg-3{
+    @include Desktop{
+        width: calc(100% * (3/12));
+    }
 }

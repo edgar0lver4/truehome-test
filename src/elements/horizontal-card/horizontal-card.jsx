@@ -32,7 +32,9 @@ const HorizontalCard = (props)=>{
         let data = {
             cd_salida: city1,
             cd_llegad: city2,
-            costo: props.info.costo
+            costo: props.info.costo,
+            fecha: props.fecha,
+            hora:props.hora
         }
         shopCar.push(data)
         dispatch(setShop(shopCar));
@@ -46,8 +48,10 @@ const HorizontalCard = (props)=>{
                 <div className="city">{city2}</div>
             </div>
             <div className="d-flex row strech">
-                <div className="text-center">
-                    Horario salida: {props.horario} 
+                <div className="text-center d-flex column">
+                    <div>Fecha y Horario salida</div>
+                    <div>{props.fecha}</div>
+                    <div>{props.horario}</div> 
                 </div> 
                 <div className="strech">
                     <div className="price">$ {props.info.costo}</div>

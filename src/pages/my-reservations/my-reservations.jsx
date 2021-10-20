@@ -22,8 +22,10 @@ const HandleList = (props)=>{
                     <div>{props.cdsal}</div>
                     <div>{props.cdlleg}</div>
                 </div>
-                <div>
-                    $ {props.price}
+                <div className="d-flex column">
+                    <div>{props.fecha}</div>
+                    <div>{props.hora}</div>
+                    <div>$ {props.price}</div>
                 </div>
             </div>
             <div className="buttonContainer">
@@ -55,7 +57,7 @@ const MyReservationsPage = () =>{
             <h1 className="title">Mis reservaciones</h1>
             <div className="container row">
                 <div className="d-flex column fullDesktop">
-                    {shopStore.store.length > 0 ? shopStore.store.map((itm,i)=><HandleList key={i} id={i} cdsal={itm.cd_salida} cdlleg={itm.cd_llegad} price={itm.costo} />) : <h1>No hay reservaciones</h1> }
+                    {shopStore.store.length > 0 ? shopStore.store.map((itm,i)=><HandleList key={i} id={i} cdsal={itm.cd_salida} cdlleg={itm.cd_llegad} price={itm.costo} hora={itm.hora} fecha={itm.fecha}/>) : <h1>No hay reservaciones</h1> }
                 </div>
                 <div className="totalizar">
                     <span className="title">Reservar</span>

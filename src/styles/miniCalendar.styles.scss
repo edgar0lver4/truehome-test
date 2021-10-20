@@ -1,0 +1,116 @@
+@import "./general.styles.scss";
+.mini-snippet{
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    .toggle-button{
+        width: 72px;
+        height: 100%;
+        font-size: 32px;
+        background-color: #fff;
+        color: #0361E4;
+        border: transparent;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+.menuToggle{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 100;
+    top:0px;
+    left:0px;
+    &.active{
+        display: flex;
+    }
+    &.off{
+        display: none;
+    }
+    .toggle-content{
+        width: 100%;
+        .toggle-button{
+            width: 72px;
+            height: 72px;
+            font-size: 32px;
+            background-color: #fff;
+            color: #0361E4;
+            border: transparent;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .title{
+        width: 100%;
+        height: 72px;
+        color: #0361E4;
+        font-size: 32px;
+        font-family: $FontPrincipal;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        @include Tablet{
+            font-size: 48px;
+        }
+        @include Phone{
+            font-size: 32px;
+        }
+    }
+}
+.mini-calendar{
+    position: sticky;
+    top:10px;
+    width: 250px;
+    background-color: #0361E4;
+    padding: 24px;
+    margin-left: 32px;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    .form-label{
+        font-family: $FontPrincipal;
+        font-size: 24px;
+        color: #fff;
+    }
+    .form-input{
+        font-size: 24px;
+        padding: 8px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .form-select{
+        font-size: 24px;
+        padding: 8px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .button-clear{
+        margin-top: 16px;
+        padding: 8px;
+        font-size: 16px;
+        font-family: $FontPrincipal;
+        font-weight: bold;
+        background-color: #fff;
+        color:#0361E4;
+        border: 0px transparent;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .button-search{
+        width: 70%;
+        font-size: 16px;
+        padding: 16px;
+        background-color: #0361E4;
+        border: transparent;
+        color: #fff;
+    }
+}

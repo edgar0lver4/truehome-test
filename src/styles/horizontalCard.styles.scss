@@ -22,8 +22,7 @@
     }
 }
 .cardHorizontal{
-    width: 80%;
-    margin-left: 16px;
+    width: 100%;
     margin-top: 8px;
     display: flex;
     flex-direction: column;
@@ -74,11 +73,5 @@
                 border: 1px solid #0361E4;
             }
         }   
-    }
-    @include Tablet{
-        width: 504px;
-    }
-    @include Desktop{
-        width: 560px;
     }
 }
