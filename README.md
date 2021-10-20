@@ -14,6 +14,12 @@ Para instalar el proyecto basta con usar el comando
 o
 ### `npm i`
 
+## Correr la aplicacion
+Para correr la aplicacion basta con usar el comando 
+### `yarn start`
+o
+### `npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
