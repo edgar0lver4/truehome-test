@@ -110,10 +110,10 @@ const HandleTabs = (props)=>{
                 <button className={tabSelected === 2 ? 'btnTab selecteditem' : 'btnTab no-selected'} onClick={()=>__setTabSelected(2)}>Fecha de llegada ({props.out.length})</button>
             </div>
             <div className={tabSelected === 1 ? 'selected d-flex column' : 'off'}>
-                {props.in.map((itm,i)=><HorizontalCard key={i} info={itm.info} horario={itm.horario} fecha={itm.fecha}/>)}
+                {props.in.length > 0 ? props.in.map((itm,i)=><HorizontalCard key={i} info={itm.info} horario={itm.horario} fecha={itm.fecha}/>) : 'Sin resultados'}
             </div>
             <div className={tabSelected === 2 ? 'selected d-flex column' : 'off'}>
-                {props.out.map((itm,i)=><HorizontalCard key={i} info={itm.info} horario={itm.horario} fecha={itm.fecha}/>)}
+                {props.out.length > 0 ? props.out.map((itm,i)=><HorizontalCard key={i} info={itm.info} horario={itm.horario} fecha={itm.fecha}/>) : 'Sin resultados'}
             </div>
         </>
     )
