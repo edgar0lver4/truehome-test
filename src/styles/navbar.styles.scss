@@ -3,7 +3,7 @@
 .navbar{
     width: 100%;
     height: 72px;
-    background: #0361E4;
+    background: $color-primary;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,7 +18,7 @@
         font-family: $FontPrincipal;
         display: block;
         margin-left: 16px;
-        color:#ffffff;
+        color:$color-white;
         font-weight: bold;
     }
     .submenu{
@@ -30,7 +30,7 @@
             align-items: center;
             margin-left: 16px;
             height: 72px;
-            color: #ffffff;
+            color: $color-white;
             text-decoration: none;
             font-size: 16px;
             padding-left: 16px;
@@ -41,14 +41,14 @@
         }
     }
     .button{
-        background: #0361E4;
+        background: $color-primary;
         height: 72px;
         padding-left: 16px;
         padding-right: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #fff;
+        color: $color-white;
         border: 0px;
     }
     .onlyDesktop{
@@ -62,7 +62,7 @@
     }
     .rightMenu{
         .myFlights_link{
-            background: #ffffff;
+            background: $color-white;
             height: 72px;
             padding-right: 16px;
             padding-left: 16px;
@@ -72,7 +72,7 @@
             font-size: 16px;
             font-family: $FontSecondary;
             text-decoration: none;
-            color:#0361E4;
+            color:$color-primary;
             .iconFly{
                 width: 40px;
                 height: 32px;
@@ -81,13 +81,13 @@
         }
         .selected{
             background: #9cc6ff;
-            color:#ffffff;
+            color:$color-white;
         }
         .searchButton{
             &:hover{
                 cursor: pointer;
-                background: #ffffff;
-                color: #0361E4;
+                background: $color-white;
+                color: $color-primary;
             }
         }
         .icon{
@@ -106,8 +106,8 @@
             }
             &:hover{
                 cursor: pointer;
-                background: #ffffff;
-                color: #0361E4;
+                background: $color-white;
+                color: $color-primary;
             }
         }
     }
@@ -145,14 +145,17 @@
     position: absolute;
     top:0px;
     left: 0px;
-    background-color: #0361E4;
+    background-color: $color-primary;
     z-index: 100;
     .title{
         font-family: $FontPrincipal;
         font-size: 36px;
+        @include Phone{
+            font-size: 24px;
+        }
         margin-bottom: 32px;
         margin-top: 16px;
-        color: #fff;
+        color: $color-white;
     }
     &.noDesktop{
         display: flex;
@@ -167,17 +170,20 @@
         display: flex;
     }
     .selected{
-        background-color: #fff;
-        color: #0361E4 !important;
+        background-color: $color-white;
+        color: $color-primary !important;
     }
     .sublink{
         width: 100%;
-        color: #fff;
+        color: $color-white;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 72px;    
         font-size: 36px;
+        @include Phone{
+            font-size: 24px;
+        }
         font-family: $FontSecondary;
         text-decoration: none;
     }
