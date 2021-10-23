@@ -9,6 +9,12 @@
     justify-content: space-between;
     .title{
         font-size: 36px;
+        @include Tablet{
+            font-size: 24px;
+        }
+        @include Phone{
+            font-size: 24px;
+        }
         font-family: $FontPrincipal;
         display: block;
         margin-left: 16px;
@@ -144,12 +150,6 @@
     .title{
         font-family: $FontPrincipal;
         font-size: 36px;
-        @include Tablet{
-            font-size: 24px;
-        }
-        @include Phone{
-            font-size: 16px;
-        }
         margin-bottom: 32px;
         margin-top: 16px;
         color: #fff;
